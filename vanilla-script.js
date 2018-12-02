@@ -107,11 +107,11 @@ window.onload = function () {
 
             setTimeout(func, 500);
 
-            function myFunction1() {
+            function stylePlayerOne() {
                 let element = document.getElementById("myDIV1");
                 element.classList.add("mystyle");
             }
-            myFunction1();
+            stylePlayerOne();
         }
 
         if (isWinner('0')) {
@@ -125,11 +125,11 @@ window.onload = function () {
 
             setTimeout(func, 500);
 
-            function myFunction2() {
+            function myFunctionTwo() {
                 let element = document.getElementById("myDIV2");
                 element.classList.add("mystyle");
             }
-            myFunction2();
+            stylePlayerTwo();
         }
     }
 
