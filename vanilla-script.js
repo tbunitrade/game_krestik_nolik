@@ -99,13 +99,11 @@ window.onload = function () {
         if (isWinner('x')) {
             const scoreSpan = document.querySelector("#playerOneScore span");
             const score = scoreSpan.innerHTML;
-            scoreSpan.innerHTML = parseInt(score) + 1;
+            scoreSpan.innerHTML = parseInt(score) + 1;          
 
-            function func() {
+            setTimeout(() => {                
                 alert('Krestiki Победители');
-            }
-
-            setTimeout(func, 500);
+            }, 500);
 
             function stylePlayerOne() {
                 let element = document.getElementById("myDIV1");
@@ -119,11 +117,9 @@ window.onload = function () {
             const score = scoreSpan.innerHTML;
             scoreSpan.innerHTML = parseInt(score) + 1;
 
-            function func() {
+            setTimeout(() => {                
                 alert('Noliki Победители');
-            }
-
-            setTimeout(func, 500);
+            }, 500);
 
             function myFunctionTwo() {
                 let element = document.getElementById("myDIV2");
@@ -180,8 +176,6 @@ window.onload = function () {
                     alert('Поле занято');
                 }
             }
-
-
         }
 
         function handleMouseClick(event) {
