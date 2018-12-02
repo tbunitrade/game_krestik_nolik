@@ -1,9 +1,9 @@
 /**
 * нормализация цсс, минимальная
-* авторизация - общий стиль  
+* авторизация - общий стиль
 * панель навигации -
 * моделька игры -
-* 
+*
 **/
 /*нормализация*/
 
@@ -19,8 +19,8 @@
 }
 
 #startGameContainer {
-  
-    width: 100%;    
+    width: 100%;
+    height: 100%;
     height: 100vh;
     overflow: hidden;
     position: absolute;
@@ -41,7 +41,7 @@
 .intro a {
     display: inline-block;
     vertical-align: middle;
-    padding-top: 35%;
+    /*padding-top: 35%;*/
     font-size: 100px;
     font-family: 'Comic Sans';
 }
@@ -67,12 +67,12 @@
     width: 100px;
     height: 100px;
     display: inline-block;
-    vertical-align: top;    
+    vertical-align: top;
     border: 1px solid black;
     box-sizing: border-box;
     text-align: center;
     font-size:60px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 #game div {
@@ -130,7 +130,7 @@
 
 .mystyle {
     background: gold;
-   
+
 
 }
 
@@ -144,33 +144,28 @@
 .myVideoContainer {
     position: absolute;
     width: 100vw;
+    height: 100%;
     height: 100vh;
     top: 0px;
     background: black;
     z-index: 10;
     left: -500%;
-  
-  }
-
-  .myVideoContainer {
 
   }
-  
-  #content, #adContainer {
-    /* position: absolute;
-    top: 0px;
-    left: 0px; */
-    /* width: 640px;
-    height: 360px; */
+
+  .buttonRestart a {
+      margin: auto;
+      display: block;
+      font-size:30px;
+      margin-top:100px;
+      text-align: center;
+      text-transform: uppercase;
   }
-  
-  #contentElement {
-    /* width: 640px;
-    height: 360px; */
-    overflow: hidden;
+
+  #playButton1 {
+
   }
-  
-  #playButton {
+  #restartGame {
     margin-top:10px;
     vertical-align: top;
     width: 350px;
@@ -187,7 +182,7 @@
     -webkit-box-shadow: inset 0 -2px #22303f;
     box-shadow: inset 0 -2px #22303f;
   }
-  
+
   #gameIndex {
       /*display: none;*/
   }
@@ -204,7 +199,7 @@
       position: relative;
   }
   #content video {
-    
+
     position: absolute;
     left: 50%;
     top:50%;
