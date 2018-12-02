@@ -75,6 +75,13 @@
     text-transform: uppercase; 
 }
 
+#game div {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size:60px;
+}
+
 .card {
     display: inline-flex!important;
 }

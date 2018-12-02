@@ -1,22 +1,9 @@
 window.onload = function() {
 
-    var 
-    firstPlayer,
-    secondPlayer,
-    trigger,    
-    startGame, // start game
+    var firstPlayer, secondPlayer, trigger,  startGame, // start game
     startContainer, // game container DELETE?
-    
-    checkNames,    
-    setname,
-
-    playButton,
-    videoContent,
-    rolik,
-    video,
-    gameIndex,
-    j,
-    nuchya;
+    checkNames, setname,
+    playButton, videoContent, rolik, video, gameIndex, j, nuchya;
 
     checkNames = false;
 
@@ -32,16 +19,14 @@ window.onload = function() {
             score : 0
         }
     };
-    console.log('playerOne ' + playerS.playerOne.name + ' playerTwo '+ playerS.playerTwo.name);
+   
     
     startGame = document.getElementById('playButton');
     startContainer = document.getElementById('startGameContainer');
     
     document.addEventListener('click', function setTrigger() {   
-       trigger = document.querySelector('input[name="option"]:checked').value;                
-        // var trig = document.getElementById('option').value;
-        // var trig2 = document.getElementById('option').value;
-        console.log(trigger );//trig + trig2);
+       trigger = document.querySelector('input[name="option"]:checked').value;               
+     
 
         if ( trigger == 0) {
             //change second label
@@ -63,20 +48,14 @@ window.onload = function() {
         function checkNames() {
             console.log('101');
             if ( (!firstPlayer.length > 0)   ) {
-                alert('Введите именя Игрока № 1 ');
-                console.log('102');
+                alert('Введите именя Игрока № 1 ');             
             } 
             
             else if (!secondPlayer.length > 0){
                 alert('Введите именя Игрока № 2 ');
             }            
             else {
-                checkNames = true;
-                console.log('103 ' + checkNames);
-
-                
-                
-
+                checkNames = true;           
 
                 if ( trigger == 'x') {
                     document.getElementById("playerOneName").innerHTML = firstPlayer;
@@ -85,58 +64,50 @@ window.onload = function() {
                 else {
                     document.getElementById("playerOneName").innerHTML = secondPlayer;
                     document.getElementById("playerTwoName").innerHTML = firstPlayer;
-                }
-                
+                }                
             }            
         }        
         checkNames();
 
-        
-       
-
-        if ( checkNames == true)  {
-            console.log('true' + checkNames);
+        if ( checkNames == true)  {       
 
             videoContent = document.getElementById('contentElement');
-                playButton = document.getElementById('playButton');    
-                playButton.addEventListener('click', onPlayButtonClick);
+            playButton = document.getElementById('playButton');    
+            playButton.addEventListener('click', onPlayButtonClick);
                 
-                function onPlayButtonClick() {
-                    videoContent.play();
-                    console.log('PLAY first');
-                }
-
+            function onPlayButtonClick() {
+                videoContent.play();
+                  
+            }
 
             startContainer.style.display = "none";
             onPlayButtonClick();
             video.style.left="0";
             setInterval(() => {
                 backStyleStart();
-            }, 11200);
-           
-            console.log('backStyleStart start');
-        }       
+            }, 11200);         
+            
+            document.addEventListener('keypress', function(event){            
+                var playerOneKeys   =   ['1','2','3','4','5','6','7','8','9'];
+                var playerTwoKeys   =   ['q','w','e','r','t','y','u','i','o'];
         
-        console.log('player 1 ' + firstPlayer + 'player 2' + secondPlayer);
-        //focusMethod();
+                if ( playerOneKeys.includes(event.key) ) {
+                    document.getElementById(`cell${event.key}`).innerHTML = '+';
+                }
+        
+                if ( playerTwoKeys.includes(event.key) ) {
+                    document.getElementById(`cell${playerTwoKeys.indexOf(event.key)+1}`).innerHTML = '-';
+                }                        
+            });            
+        }      
     }
-
-    console.log('income ' + firstPlayer);
-  
-   
-
-    // document.getElementById("dataTwo").innerHTML =
-    // secondPlayer;
 
     document.getElementById("playerOneScore").innerHTML =
     "<br>Score " + playerS.playerOne.score;
-
     
     document.getElementById("playerTwoScore").innerHTML =
     "<br>Score " + playerS.playerTwo.score;   
-
-    
-    
+   
     videoContent2 = document.getElementById('contentElement2');    
     playButton2 = document.getElementById('playButton2');    
     playButton2.addEventListener('click', onPlayButtonClick2);
@@ -145,50 +116,38 @@ window.onload = function() {
         video.style.left="0";
         videoContent2.play();
         console.log('PLAY second');
-    }
- 
+    } 
 
     rolik = document.getElementById('playButton2');
     video = document.getElementById('mainContainer');
     
     rolik.onclick = function(event) {
-        onPlayButtonClick2();
-        
+        onPlayButtonClick2();        
         setInterval(() => {
             backStyle();
-        }, 21000);
-       
-        console.log('rolik.onclick');
+        }, 21000);      
+     
     }
+
+    /// must be delete this style
 
     function backStyle() {
         video.style.left="-500%";
         setInterval(() => {
             restart();
-        }, 1000);
-        console.log('backStyle');
+        }, 1000);        
     }
 
     function backStyleStart() {
         video.style.left="-500%";
         gameIndex = document.getElementById('gameIndex');
-        gameIndex.style.display = "block";
-       
-        console.log('backStyleStart func');
-
+        gameIndex.style.display = "block";              
     }
 
     function restart() {
         window.location.reload();                
     }   
-
-    //setTimeout(backStyle(), 5000); 
-   
     
-    // focusMethod = function getFocus() {           
-    //     document.getElementById("game").focus();
-    //   }
-
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
                   //START OF GAME//
@@ -197,16 +156,15 @@ window.onload = function() {
 
 
     j = 1;
-    nuchya = 9;
+    nuchya = 10;
 
     // loopipng cell 
-    for (var cell=0; cell<9; cell++) {
-        document.getElementById('game').innerHTML+='<div class="cell" tabindex="1" ></div>'
-    }  
+    for (var cell=1; cell<10; cell++) {        
+        document.getElementById('game').innerHTML+=`<div id="cell${cell}" class="cell" tabindex="1" ></div>`
+    }      
 
-    document.getElementById('game').onclick = function(event) {
-        console.log(event);       
-      
+    document.getElementById('game').onclick = function(event) {  
+              
         if ( event.target.className == 'cell')     {
             //this.innerHTML = '0';            
             if (event.target.innerHTML == '') {
@@ -237,8 +195,7 @@ window.onload = function() {
         ////////////////////////////////
 
         function calc() {
-            let myarray = document.getElementsByClassName('cell') ;
-            console.log(myarray);
+            let myarray = document.getElementsByClassName('cell') ;    
 
             // line horizint x
 
@@ -312,33 +269,8 @@ window.onload = function() {
                     element.classList.add("mystyle");
                 }                
                 myFunction2();                
-            }    
-            
-            // x1 = false;
-            // x2 = false;
-            // x3 = false;          
-
-            // function stylemekrestiline1() {
-            //     myarray[0].style.textDecoration = "line-through";
-            //     myarray[1].style.textDecoration = "line-through";
-            //     myarray[2].style.textDecoration = "line-through";
-            //     //event.target.style.textDecoration = "line-through";
-            // }
-
-            // function stylemekrestiline2() {
-            //     myarray[3].style.textDecoration = "line-through";
-            //     myarray[4].style.textDecoration = "line-through";
-            //     myarray[5].style.textDecoration = "line-through";
-            //     //event.target.style.textDecoration = "line-through";
-            // }
-
-            // function stylemekrestiline3() {
-            //     myarray[6].style.textDecoration = "line-through";
-            //     myarray[7].style.textDecoration = "line-through";
-            //     myarray[8].style.textDecoration = "line-through";
-            //     //event.target.style.textDecoration = "line-through";
-            // }
-
+            }                
+           
             function restart() {
                 window.location.reload();                
             }
