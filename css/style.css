@@ -275,3 +275,10 @@ max-width: 78px;
     top:50%;
     transform: translate(-50%,-50%);
 }
+
+.controlsDesc table {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+}

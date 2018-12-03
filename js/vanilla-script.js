@@ -1,13 +1,5 @@
 window.onload = function () {
 
-    document.addEventListener('keypress',
-    function(event){
-           if ( event.key == "Enter" ) {
-               document.getElementById('playButton').click();
-           }
-   }); 
-
-
     let trigger, // start game
         playButton, videoContent, rolik, video, gameIndex, resetHandlers;
 
@@ -21,7 +13,6 @@ window.onload = function () {
             score: 0
         }
     };
-
 
     const startGame = document.getElementById('playButton');
     const startContainer = document.getElementById('startGameContainer');
@@ -61,9 +52,11 @@ window.onload = function () {
             return false;
         } else if (!secondPlayer.length > 0) {
             alert('Введите именя Игрока № 2 ');
+            document.getElementById('firstPlayer').style.border = "none";
             document.getElementById('secondPlayer').style.border = "thick solid red";
             return false;
         }
+               
 
         return true;
     }
@@ -183,6 +176,11 @@ window.onload = function () {
                 window.location.reload();
             }
 
+            if ( event.key === " " ) {
+                document.getElementById('restartGame').click();
+                                
+            }  
+
             if (keys.includes(event.key)) {
                 const selectedCell = document.getElementById(`cell${event.key}`);
 
@@ -239,6 +237,8 @@ window.onload = function () {
             backStyleStart();
         }, 6700);
     }
+
+   
 
     // INIT GAME
     initEntryScreen();
@@ -302,7 +302,33 @@ window.onload = function () {
         const controls = document.getElementById("bR1");
         controls.classList.remove("showBlock");
     }
+
+    //correct Enter key
+    correctEnterButton();
+    function correctEnterButton() {
+        let enter = 0;
+        const body = document.getElementById('body');        
+
+        if ( enter == 0) {          
+
+            document.addEventListener('keypress',
+            function(event){
+                //console.log(event);
+                const firstPlayer = document.getElementById('firstPlayer').value;
+                const secondPlayer = document.getElementById('secondPlayer').value;    
+
+                //console.log(event.target); 
+                
+                if ( (event.key == "Enter") && ( enter == 0) && (checkNames(firstPlayer,secondPlayer)) ) {
+                    document.getElementById('playButton').click();
+                    enter++;
+                //    console.log('i close event enter');
+                }        
+        });     
+        }      
+    }
 }
+
 
 
 

@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="body">
+<body id="body">
     <div id="startGameContainer" class="startGame " >
         <div class="row ">
             <div class="intro">
@@ -102,21 +102,40 @@
     </div><!-- end header-->
 
 
-    <div  class="container-fluid ">
+    <div  class="container-fluid controlsDesc">
+        
         <div class="row">
-
             <div class="col-sm">
                 <div id="game" tabindex="0"></div>
             </div>
-
         </div>
+        <div class="row">
+                <div class="col-sm">
+                    <table>
+                        <caption>How to play</caption>
+                        <!-- <tr>
+                            <th style="font-weight:700">Buttons</th><th>Description</th>
+                        </tr> -->
+                        <tr>
+                            <td style="font-weight:700">Space</td><td>Fast reload game</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">1-9</td><td>use for click on cell</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">ESC</td><td>use for exit to lobby</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
     </div>
 
     <div  class="container-fluid ">
         <div class="row">
-            <div id="bR1" class="col-md-12 buttonRestart hide">
-                <button id="restartGame"  >Начать заново</button>
-                <button onclick="setTimeout(function(){ window.location.reload() }, 500);">Выйти в лобби</button>
+            <div id="bR1" class="col-md-12 buttonRestart hide text-center">
+                <button id="restartGame">Restart game</button>
+                <label class="text-center">or press <strong>Space</strong> button, to restart game</label>
+                <button onclick="setTimeout(function(){ window.location.reload() }, 500);">Exit to lobby</button>
             </div>
         </div>
     </div>
