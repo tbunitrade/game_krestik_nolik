@@ -2,6 +2,8 @@ window.onload = function () {
 
     let trigger, // start game
         playButton, videoContent, rolik, video, gameIndex, resetHandlers;
+    
+    var stopclick = true;
 
     let playerS = {
         playerOne: {
@@ -115,6 +117,8 @@ window.onload = function () {
                 
                 element.classList.add("currentWinner");
                 controls.classList.add("showBlock");
+
+                stopclick = false;
             }
             stylePlayerOne();
 
@@ -136,6 +140,7 @@ window.onload = function () {
              
                 element.classList.add("currentWinner");
                 controls.classList.add("showBlock");
+                stopclick = false;
             }
             stylePlayerTwo();
         }
@@ -166,6 +171,7 @@ window.onload = function () {
 
             if (ties == 0) {
                 alert('последний ход');
+                console.log('test'+ ties)
             }
         }
         
@@ -173,43 +179,64 @@ window.onload = function () {
         function handleKeyDown(event) {
             var keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
             console.log(event);
+            // if (event.key === 'Escape') {
+            //     window.location.reload();
+            // }
 
-            if (event.key === 'Escape') {
-                window.location.reload();
-            }
-
-            if ( event.key === " " ) {
-                document.getElementById('restartGame').click();
-                                
-            }  
-
-            if (keys.includes(event.key)) {
-                const selectedCell = document.getElementById(`cell${event.key}`);
-
-                if (selectedCell.innerText === '') {
-                    renderPlayerTurn(selectedCell, turn);
-                    handleTurns();
-                    calc();
-                } else {
-                    alert('Поле занято');
+            if ( stopclick) {
+                if (event.key === 'Escape') {
+                    window.location.reload();
+                }
+    
+                if ( event.key === " " ) {
+                    document.getElementById('restartGame').click();
+                                    
+                }  
+    
+                if (keys.includes(event.key)) {
+                    const selectedCell = document.getElementById(`cell${event.key}`);
+    
+                    if (selectedCell.innerText === '') {
+                        renderPlayerTurn(selectedCell, turn);
+                        handleTurns();
+                        calc();
+                    } else {
+                        alert('Сell busy');
+                    }
                 }
             }
+
+            else {
+                if (event.key === 'Escape') {
+                    window.location.reload();
+                }
+                else {
+                    alert('Game end, click on restart game.');
+                }                
+            }            
         }
 
         function handleMouseClick(event) {
-            if (event.target.className == 'cell') {
-                const selectedCell = event.target;
-                console.log(selectedCell.innerText === '');
-                console.log(selectedCell.innerText);
-                if (selectedCell.innerText === '') {
-                    renderPlayerTurn(selectedCell, turn);
-                    handleTurns();
-                    calc();
-                }
-                else {
-                    alert('Поле занято');
+            if ( stopclick) { 
+                
+                if (event.target.className == 'cell') {
+                    const selectedCell = event.target;
+                    // console.log(selectedCell.innerText === '');
+                    // console.log(selectedCell.innerText);
+                    if (selectedCell.innerText === '') {
+                        renderPlayerTurn(selectedCell, turn);
+                        handleTurns();
+                        calc();
+                    }
+                    else {
+                        alert('Сell busy');
+                    }
                 }
             }
+
+            else {               
+                alert('Game end, click on restart game.');                   
+            }            
         }
 
         document.addEventListener('keydown', handleKeyDown, true);
@@ -266,6 +293,7 @@ window.onload = function () {
         const elementTwo = document.getElementById("myDIV2");        
         elementOne.classList.remove("currentWinner");
         elementTwo.classList.remove("currentWinner");
+        stopclick = true;
     }
 
     rolik = document.getElementById('restartGame');
