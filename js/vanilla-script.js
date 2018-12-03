@@ -3,8 +3,6 @@ window.onload = function () {
     let trigger, // start game
         playButton, videoContent, rolik, video, gameIndex, resetHandlers;
     
-    var stopclick = true;
-
     let playerS = {
         playerOne: {
             name: 'name1',
@@ -236,7 +234,8 @@ window.onload = function () {
 
             else {               
                 alert('Game end, click on restart game.');                   
-            }            
+            }
+            
         }
 
         document.addEventListener('keydown', handleKeyDown, true);
@@ -360,6 +359,11 @@ window.onload = function () {
                 }        
         });     
         }      
+    }
+
+    //disable click if someone win
+    var stopclick = function(){       
+        return true;        
     }
 }
 
