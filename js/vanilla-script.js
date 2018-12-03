@@ -28,7 +28,8 @@ window.onload = function () {
 
     function initGame(event) {
         const firstPlayer = document.getElementById('firstPlayer').value;
-        const secondPlayer = document.getElementById('secondPlayer').value;
+        const secondPlayer = document.getElementById('secondPlayer').value;       
+        
 
         if (checkNames(firstPlayer, secondPlayer)) {
             playVideo();
@@ -111,15 +112,19 @@ window.onload = function () {
             const score = scoreSpan.innerHTML;
             scoreSpan.innerHTML = parseInt(score) + 1;          
 
-            setTimeout(() => {                
-                alert('Krestiki Победители');
-            }, 500);
+            // setTimeout(() => {                
+            //     alert('Krestiki Победители');
+            // }, 500);
 
             function stylePlayerOne() {
                 let element = document.getElementById("myDIV1");
+                let controls = document.getElementById("bR1");
                 element.classList.add("mystyle");
+                controls.classList.add("showBlock");
             }
             stylePlayerOne();
+
+            
         }
 
         if (isWinner('0')) {
@@ -127,13 +132,15 @@ window.onload = function () {
             const score = scoreSpan.innerHTML;
             scoreSpan.innerHTML = parseInt(score) + 1;
 
-            setTimeout(() => {                
-                alert('Noliki Победители');
-            }, 500);
+            // setTimeout(() => {                
+            //     alert('Noliki Победители');
+            // }, 500);
 
-            function myFunctionTwo() {
+            function stylePlayerTwo() {
                 let element = document.getElementById("myDIV2");
+                let controls = document.getElementById("bR1");
                 element.classList.add("mystyle");
+                controls.classList.add("showBlock");
             }
             stylePlayerTwo();
         }
@@ -222,16 +229,15 @@ window.onload = function () {
         playButton.addEventListener('click', onPlayButtonClick);
 
         function onPlayButtonClick() {
-            videoContent2.play();
+            videoContent.play();
         } 
         
         startContainer.style.display = "none";
-        onPlayButtonClick2();
+        onPlayButtonClick();
         video.style.left = "0";
-        setTimeout(() => {
-            videoContent2.pause();
+        setTimeout(() => {            
             backStyleStart();
-        }, 900);
+        }, 6700);
     }
 
     // INIT GAME
@@ -264,7 +270,7 @@ window.onload = function () {
         setTimeout(() => {
             videoContent2.pause();
             backStyle();
-        }, 5000);
+        }, 4050);
 
     }
 
@@ -291,6 +297,10 @@ window.onload = function () {
         createCells();
         resetHandlers();
         resetHandlers = bindGameControlsEvents();
+
+        //reset controls style
+        const controls = document.getElementById("bR1");
+        controls.classList.remove("showBlock");
     }
 }
 

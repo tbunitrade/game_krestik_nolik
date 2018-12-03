@@ -190,9 +190,17 @@ max-width: 78px;
 }
 
 .buttonRestart button {
-    margin: auto;
     display: block;
+    border: none;
+    margin: auto;    
     margin-top: 3em;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.buttonRestart button:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .mystyle {
@@ -249,6 +257,10 @@ max-width: 78px;
 
 .hide {
     display: none;
+}
+
+.showBlock {
+    display: block;
 }
 
 .mainContainer {
