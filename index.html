@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Крестики и нолики. Демо версия 1.</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script src="/js/vanilla-script.js"></script>
+    <script src="js/vanilla-script.js"></script>
     <!-- -defer  не мешает отображению, обычно я это включал с очень сложными скриптами на ВП, что б хоть как то пройти по нормативу гугл спид 85 балов  -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/png" >
     <!-- jQuery library -->
-    <script src="/js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 </head>
 
@@ -48,12 +48,12 @@
            
         </div>
         <div class="row">
-            <div class="intro" onkeypress=if(event.keyCode==13){$("#startGame").click()}>
+            <div class="intro" >
                 <div class="col-md-12  text-center">
                     <a id="playButton" href="#play">XStart0</a>                     
                 </div>             
 
-                <p class="text-center">
+                <div class="text-center">
                     <h3>Rules of the game.</h3>
                     <p>To start game file your names and press XStart0</p>
                     <p>To lieve game press Close game</p>
@@ -61,14 +61,14 @@
                     <p>Choose CHAR X, to go first</p>
                     <p>if Player one choose 0, Second player will go first by X CHAR.</p>
                     <h3>X char always go first.</h3>
-                </p>
+                </div>
 
                 <div class="col-md-12  text-center">                        
                     <a href="http://google.com.ua" onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);">Close game</a>
                 </div>
             </div>
         </div>
-    </div><!--  start gane end-->
+    </div><!--  start gane end -->
     <div id="gameIndex"></div>
     <div class="header ">
         <div class="container-fluid">
@@ -76,7 +76,7 @@
                 <div class="col-sm">
                     <div class="myPhoto">
                         <div class="card">
-                            <img class="card-img-top" src="/img/img_avatar1.png" alt="Card image">
+                            <img class="card-img-top" src="img/img_avatar1.png" alt="Card image">
                         </div>
                         <div class="card-body" id="myDIV1">
                             <p class="scoreLabel">Player-1</p>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="card">
-                        <img class="card-img-top" src="/img/img_avatar2.png" alt="Card image">
+                        <img class="card-img-top" src="img/img_avatar2.png" alt="Card image">
                     </div>
                     <div class="myPhoto" tabindex="-1">
                         <div class="card-body" id="myDIV2">
@@ -102,7 +102,7 @@
     </div><!-- end header-->
 
 
-    <div id="gameIndex" class="container-fluid ">
+    <div  class="container-fluid ">
         <div class="row">
 
             <div class="col-sm">
@@ -112,39 +112,30 @@
         </div>
     </div>
 
-    <div id="gameIndex" class="container-fluid ">
+    <div  class="container-fluid ">
         <div class="row">
             <div class="col-md-12 buttonRestart">
-                <button id="restartGame" onclick=location=URL>Начать заново</button>
-                <button onclick="setTimeout(function(){ window.location.reload() }, 500);">Выйти в лобби</a>
+                <button id="restartGame" >Начать заново</button>
+                <button onclick="setTimeout(function(){ window.location.reload() }, 500);">Выйти в лобби</button>
             </div>
         </div>
     </div>
     <div id="mainContainer" class="myVideoContainer">
         <div id="content">
             <video id="contentElement">
-                <source src="http://start.sierra-group.in.ua/game/video/Neo11.mp4">
-                </source>
+                <source src="video/Neo11.mp4" type="video/mp4">
             </video>
 
             <video id="contentElement2" class="hide">
-                <source src="http://start.sierra-group.in.ua/game/video/neobelieve.mp4">
-                </source>
+                <source src="video/neobelieve.mp4" type="video/mp4">
             </video>
         </div>
         <div id="adContainer"></div>
     </div>
-
-
-
-
-    <script type="text/javascript" src="http://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-
-    <!-- Popper JS -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
-
+        
     <!-- Latest compiled JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="http://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
