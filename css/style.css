@@ -33,19 +33,87 @@
     display: block;
 }
 
+#firstPlayer,
+#secondPlayer {
+    float: right
+}
+
+#secondPlayerLabel {
+    margin: auto;
+    width: 50px;
+    display: inline-block;
+    /* background: red; */
+    text-align: center;
+ }
+
+.form input::-moz-placeholder,
+.form input::-webkit-input-placeholder {  
+    color: #ccc;  
+}
+
+.form strong{
+    /*background: white;*/
+    padding: 0vh 0.5vh;
+    margin: 0vh 0.5vh;
+    border-radius:10px;    
+}
+
+.form label {
+    margin-bottom: 0;
+}
+
 #startGameContainer .form {
     margin: auto;
     display: block;
 }
 
+.intro {
+padding: 2vh 0vh;
+}
+
+.intro .logo {
+width: 100%;
+margin: auto;
+max-width: 78px;
+}
+
+.intro h3 {
+    font-size: 2vh;
+}
+
+.intro p {
+    font-size: 1vh;
+}
+
+@media screen and (min-width: 768px) {
+    
+    .intro .logo {
+        max-width: 148px;        
+    }
+
+    .intro h3 {
+        font-size: 2.3vh;
+    }
+
+    .intro p {
+        font-size: 2vh;
+    }
+}
+
 .intro a {
     display: inline-block;
     vertical-align: middle;
-    /*padding-top: 35%;*/
-    font-size: 100px;
+    font-size: 4vh;
+    line-height: 4vh;
     font-family: 'Comic Sans';
 }
 
+@media screen and (min-width: 768px) {
+    
+    .intro a { 
+        font-size: 4vh;     
+    }
+}
 
 /* моделька игры*/
 
@@ -96,8 +164,7 @@
 
 .card-body {
     display: inline-block;
-    vertical-align: top;
-    /*width: 44%;*/
+    vertical-align: top;  
 }
 
 .card-body input {
@@ -130,14 +197,11 @@
 
 .mystyle {
     background: gold;
-
-
 }
 
 .myPhoto {
     display: inline-block;
     vertical-align: top;
-
 }
 
 
@@ -150,22 +214,18 @@
     background: black;
     z-index: 10;
     left: -500%;
+}
 
-  }
+.buttonRestart a {
+    margin: auto;
+    display: block;
+    font-size:30px;
+    margin-top:100px;
+    text-align: center;
+    text-transform: uppercase;
+}
 
-  .buttonRestart a {
-      margin: auto;
-      display: block;
-      font-size:30px;
-      margin-top:100px;
-      text-align: center;
-      text-transform: uppercase;
-  }
-
-  #playButton1 {
-
-  }
-  #restartGame {
+#restartGame {
     margin-top:10px;
     vertical-align: top;
     width: 350px;
@@ -181,27 +241,23 @@
     cursor: pointer;
     -webkit-box-shadow: inset 0 -2px #22303f;
     box-shadow: inset 0 -2px #22303f;
-  }
+}
 
-  #gameIndex {
-      /*display: none;*/
-  }
-
-  .gameIndexBlock {
+.gameIndexBlock {
     display: block;
-  }
+}
 
-  .hide {
-      display: none;
-  }
+.hide {
+    display: none;
+}
 
-  .mainContainer {
-      position: relative;
-  }
-  #content video {
+.mainContainer {
+    position: relative;
+}
 
+#content video {
     position: absolute;
     left: 50%;
     top:50%;
     transform: translate(-50%,-50%);
-  }
+}

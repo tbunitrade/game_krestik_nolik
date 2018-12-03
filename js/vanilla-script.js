@@ -222,14 +222,14 @@ window.onload = function () {
         playButton.addEventListener('click', onPlayButtonClick);
 
         function onPlayButtonClick() {
-            videoContent.play();
+            videoContent2.play();
         } 
         
         startContainer.style.display = "none";
-        onPlayButtonClick();
+        onPlayButtonClick2();
         video.style.left = "0";
         setTimeout(() => {
-            videoContent.pause();
+            videoContent2.pause();
             backStyleStart();
         }, 900);
     }
