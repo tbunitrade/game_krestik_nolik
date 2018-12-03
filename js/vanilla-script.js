@@ -110,9 +110,10 @@ window.onload = function () {
             // }, 500);
 
             function stylePlayerOne() {
-                let element = document.getElementById("myDIV1");
+                let element = document.getElementById("myDIV1");               
                 let controls = document.getElementById("bR1");
-                element.classList.add("mystyle");
+                
+                element.classList.add("currentWinner");
                 controls.classList.add("showBlock");
             }
             stylePlayerOne();
@@ -130,9 +131,10 @@ window.onload = function () {
             // }, 500);
 
             function stylePlayerTwo() {
-                let element = document.getElementById("myDIV2");
+                let element = document.getElementById("myDIV2");             
                 let controls = document.getElementById("bR1");
-                element.classList.add("mystyle");
+             
+                element.classList.add("currentWinner");
                 controls.classList.add("showBlock");
             }
             stylePlayerTwo();
@@ -260,6 +262,10 @@ window.onload = function () {
         videoContent2.style.display = 'block';
         videoContent2.play();
         console.log('PLAY second');
+        const elementOne = document.getElementById("myDIV1");
+        const elementTwo = document.getElementById("myDIV2");        
+        elementOne.classList.remove("currentWinner");
+        elementTwo.classList.remove("currentWinner");
     }
 
     rolik = document.getElementById('restartGame');
