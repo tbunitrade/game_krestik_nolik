@@ -51,15 +51,17 @@
     color: #ccc;  
 }
 
-.form strong{
+.form span{
     /*background: white;*/
-    padding: 0vh 0.5vh;
-    margin: 0vh 0.5vh;
+    font-weight: 700;
+    /* padding: 0vh 0.5vh;
+    margin: 0vh 0.5vh; */
     border-radius:10px;    
 }
 
 .form label {
     margin-bottom: 0;
+    font-weight: 700;
 }
 
 #startGameContainer .form {
